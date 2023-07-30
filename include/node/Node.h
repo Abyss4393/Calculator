@@ -1,8 +1,19 @@
 #ifndef _NODE_H_
 #define _NODE_H_
-class Node
+
+class Noncopyable
 {
 private:
+    Noncopyable(const Noncopyable &other);
+    const Noncopyable &operator=(const Noncopyable &other);
+
+protected:
+    Noncopyable(){};
+    ~Noncopyable(){};
+};
+
+class Node : Noncopyable
+{
 public:
     virtual ~Node() = 0;
     virtual double Calc() const = 0;
@@ -96,7 +107,7 @@ private:
 public:
     UminusNode(Node *child) : UnaryNode(child){};
     ~UminusNode(){};
-    double Calc() const;    
+    double Calc() const;
 };
 
 #endif // _NODE_H_
