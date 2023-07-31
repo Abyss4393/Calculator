@@ -6,11 +6,13 @@ class Scanner;
 class Parser
 {
 private:
-    Scanner& scanner_;
+    Scanner &scanner_;
 
 public:
-    Parser(Scanner &scn) : scanner_(scn){};
-    ~Parser(){};
+    Parser(Scanner &scn);
+    ~Parser();
+    void Parse();
+    double Calcuate() const;
 };
 
 #endif // _PARSER_H_
