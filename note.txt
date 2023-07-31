@@ -12,3 +12,5 @@ auto_ptr            该指针资源不共享，但是可以转移
 shared_ptr          该指针资源共享，内部维护一个引用计数
 weak_ptr            该指针为弱指针通常配合shared_ptr，实现一个回收循环引用的资源
 scoped_ptr          该指针资源不共享，但是不可以转移
+
+strtod:字符串转double
