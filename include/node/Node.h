@@ -6,7 +6,6 @@ class Noncopyable
 private:
     Noncopyable(const Noncopyable &other);
     const Noncopyable &operator=(const Noncopyable &other);
-
 protected:
     Noncopyable(){};
     ~Noncopyable(){};
@@ -15,7 +14,7 @@ protected:
 class Node : Noncopyable
 {
 public:
-    virtual ~Node() = 0;
+    virtual ~Node() {};
     virtual double Calc() const = 0;
 };
 class NumberNode : public Node
@@ -25,10 +24,10 @@ private:
 
 public:
     NumberNode(double num) : number_(num){};
-    ~NumberNode(){};
+    virtual ~NumberNode(){};
 
 public:
-    double Calc() const;
+    virtual double Calc() const;
 };
 // BinaryNode
 class BinaryNde : public Node
@@ -39,7 +38,7 @@ protected:
 
 public:
     BinaryNde(Node *left, Node *right) : left_(left), right_(right){};
-    ~BinaryNde()
+    virtual ~BinaryNde()
     {
         delete left_;
         delete right_;
@@ -54,7 +53,7 @@ protected:
 
 public:
     UnaryNode(Node *child) : child_(child){};
-    ~UnaryNode()
+    virtual ~UnaryNode()
     {
         delete child_;
     };
@@ -66,8 +65,8 @@ private:
     /* data */
 public:
     AddNode(Node *left, Node *right) : BinaryNde(left, right){};
-    ~AddNode(){};
-    double Calc() const;
+    virtual ~AddNode(){};
+    virtual double Calc() const;
 };
 
 class SubNode : public BinaryNde
@@ -76,8 +75,8 @@ private:
     /* data */
 public:
     SubNode(Node *left, Node *right) : BinaryNde(left, right){};
-    ~SubNode(){};
-    double Calc() const;
+    virtual ~SubNode(){};
+    virtual double Calc() const;
 };
 
 class MultipleNode : public BinaryNde
@@ -86,8 +85,8 @@ private:
     /* data */
 public:
     MultipleNode(Node *left, Node *right) : BinaryNde(left, right){};
-    ~MultipleNode(){};
-    double Calc() const;
+    virtual ~MultipleNode(){};
+    virtual double Calc() const;
 };
 
 class DividedNode : public BinaryNde
@@ -96,8 +95,8 @@ private:
     /* data */
 public:
     DividedNode(Node *left, Node *right) : BinaryNde(left, right){};
-    ~DividedNode(){};
-    double Calc() const;
+    virtual ~DividedNode(){};
+    virtual double Calc() const;
 };
 
 class UminusNode : public UnaryNode
@@ -106,8 +105,8 @@ private:
     /* data */
 public:
     UminusNode(Node *child) : UnaryNode(child){};
-    ~UminusNode(){};
-    double Calc() const;
+    virtual ~UminusNode(){};
+    virtual double Calc() const;
 };
 
 #endif // _NODE_H_
