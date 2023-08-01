@@ -79,7 +79,7 @@ void Scanner::Accept()
         break;
 
     default:
-        sus_ = ERROR;
+        sus_ = EStatus::ERROR;
         break;
     }
 }
