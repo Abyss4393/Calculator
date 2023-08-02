@@ -67,7 +67,8 @@ Node *Parser::Factor()
         {
             status_ = S_ERROR;
             root = 0;
-            throw new exception("missing ')'");
+            cout << "missing parenthses" << endl;
+           
         }
 
         break;
@@ -81,14 +82,14 @@ Node *Parser::Factor()
         break;
     default:
         status_ = Status::S_ERROR;
+        cout << "Not a valid expression" << endl;
         break;
     }
-
     return root;
 }
 void Parser::Parse()
 {
-    Expr();
+    tree_ = Expr();
 }
 
 double Parser::Calcuate() const
