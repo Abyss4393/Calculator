@@ -16,6 +16,6 @@ int main(int argc, char *argv[])
         Scanner scn(buffer);
         Parser parser(scn);
         parser.Parse();
-        parser.Calcuate();
+        cout << parser.Calcuate() << endl;
     } while (status != QUIT);
 }
