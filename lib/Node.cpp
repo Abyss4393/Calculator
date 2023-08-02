@@ -26,7 +26,7 @@ double MultipleNode::Calc() const
 double DividedNode::Calc() const
 {
     if (right_->Calc() != 0)
-        return left_->Calc() * right_->Calc();
+        return left_->Calc() / right_->Calc();
     else
     {
         cout << "Error the divied is Zro" << endl;
