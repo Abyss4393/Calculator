@@ -38,3 +38,17 @@ double UminusNode::Calc() const
 {
     return -child_->Calc();
 }
+
+TernaryNode::~TernaryNode()
+{
+    for (Node *item : childs_)
+    {
+        delete item;
+    }
+}
+
+void TernaryNode::AppendChile(Node *child, bool postive)
+{
+    childs_.push_back(child);
+    postives_.push_back(postive);
+}
